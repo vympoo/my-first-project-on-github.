@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-US" class="hide-scroll">
+<head>
+    <title>Creating marketing plan HTML Template Live Demo</title>
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no,width=device-width">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Open+Sans:200,300,400,700,800,900&amp;subset=latin" rel="preload" as="font" />
+    <link rel="preconnect" href="https://images01.nicepagecdn.com" />
+    <link rel="preconnect" href="https://csite.nicepage.com" />
+    <meta name="robots" content="noindex, nofollow">
+    <style>
+        .dialog-wrapper { display: none !important; }
+        .wrap, #main { height: 100vh; margin: 0 !important; }
+        iframe { display: none; }
+        html, body { height: 100%; }
+        .page-preview { border-radius: 0; height: 100%; }
+        .page-preview-header { background: #f2f2f2; border: none; height: 70px; position: relative; text-align: center; }
+        .page-preview-header > a { display: inline-block; margin-top: 15px; padding: 4px; }
+        .page-preview-header > a:hover { background: #e2f0fc; text-decoration: none; }
+        .page-preview-header > a.active { background: #c9e4f9; }
+        .page-preview-header > .close { float: right; margin-right: 10px; }
+        .page-preview-body { height: calc(100% - 70px); overflow: hidden; text-align: center; }
+        .page-preview-body iframe { border: none; display: inline-block; height: 100%; }
+    </style>
+</head>
+<body>
+    <div class="page-preview">
+        <div class="page-preview-header">
+            <a class="hidden-sm hidden-xs" href="#" id="previewDesktopBtn" data-preview-size="100%"><img alt="Responsive Desktop Mode" src="//csite.nicepage.com/Images/Site/responsive-desktop.png"></a>
+            <a class="hidden-sm hidden-xs" href="#" id="previewLaptopBtn" data-preview-size="1040px"><img alt="Responsive Laptop Mode" src="//csite.nicepage.com/Images/Site/responsive-laptop.png"></a>
+            <a class="hidden-xs" href="#" id="previewTabletBtn" data-preview-size="820px"><img alt="Responsive Tablet Mode" src="//csite.nicepage.com/Images/Site/responsive-tablet.png"></a>
+            <a class="hidden-xs" href="#" id="previewPhoneHorizontalBtn" data-preview-size="640px"><img alt="Responsive Phone Horizontal Mode" src="//csite.nicepage.com/Images/Site/responsive-phone-horizontal.png"></a>
+            <a class="hidden-xs" href="#" id="previewPhoneBtn" data-preview-size="440px"><img alt="Responsive Phone Mode" src="//csite.nicepage.com/Images/Site/responsive-phone.png"></a>
+            <a class="close" href="/ht/2907657/creating-marketing-plan-html-template"><img alt="Close" src="//csite.nicepage.com/Images/Site/icon-close.png"></a>
+        </div>
+        <div class="page-preview-body">
+            <iframe id="livePreviewFrame" src="https://website2907646.nicepage.io/Home.html?version=9da30aa8-6d5e-48d8-a85d-b30c9513a2cf" width="1057" height="640" style="width:100%;"></iframe>
+        </div>
+    </div>
+    <a style="position:absolute;top:17px;left:10px;" href="/"><img alt="NicePage.com" src="//csite.nicepage.com/Images/logo-w.png"></a>
+    <script>
+        function init($) {
+            $('#previewDesktopBtn, #previewLaptopBtn, #previewTabletBtn, #previewPhoneHorizontalBtn, #previewPhoneBtn').click(function (e) {
+                setLivePreviewFrameSize($(this));
+                setActiveResponsiveButton(this);
+                e.preventDefault();
+            });
+            detectActiveResponsiveButton();
+        }
+        function setActiveResponsiveButton(btn) {
+            $(".page-preview-header > a").removeClass("active");
+            $(btn).addClass("active");
+        }
+        function detectActiveResponsiveButton() {
+            var d = device || 'desktop';
+            $("#preview" + d.charAt(0).toUpperCase() + d.substr(1) + "Btn").click();
+        }
+        function setLivePreviewFrameSize(srcEl) {
+            var attr = srcEl.closest("[data-preview-size]").attr("data-preview-size");
+            $('#livePreviewFrame').width(attr.indexOf("%") !== -1 ? attr : parseInt(attr, 10) + (srcEl.width() - srcEl.find("div").last().width()));
+        }
+        if (jQuery.isReady) { init(jQuery); } else { jQuery(function ($) { init($); }); }
+    </script>
+</body>
+</html>
